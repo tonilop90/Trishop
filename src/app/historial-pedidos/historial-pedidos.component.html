@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="box">
+  <div class="container">
+    <div class="row row-box">
+
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 box-pedidos" *ngFor="let pedido of pedidos">
+
+        <div class="box-part text-left">
+          <div class="subtitle">
+            <h4>Dirección de envío: {{pedido.direccion}}</h4>
+          </div>
+          <div class="subtitle">
+            <h4>Nombre: {{ pedido.nombre }} </h4>
+          </div>
+          <div class="subtitle">
+            <h4>Ciudad: {{ pedido.ciudad}} </h4>
+          </div>
+          <div class="subtitle">
+            <h4>Email: {{ pedido.email}} </h4>
+          </div>
+          <div class="subtitle">
+            <h4>Telefono: {{ pedido.telefono}} </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

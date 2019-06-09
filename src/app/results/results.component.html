@@ -1,0 +1,45 @@
+<app-header></app-header>
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- STORE -->
+      <div id="store" class="col-md-12">
+        <!-- store products -->
+        <div class="row">
+          <!-- product -->
+          <div class="col-md-4 col-xs-6" *ngFor = "let producto of listaProductos">
+            <div class="product">
+              <div class="product-img" (click)="goToDetails(producto)">
+                <img src="/assets/{{producto.img}}"  style="height: 350px" alt="">
+              </div>
+              <div class="product-body">
+                <p class="product-category">{{ producto.categoria }}</p>
+                <h3 class="product-name"><a href="#">{{ producto.nombre }}</a></h3>
+                <h4 class="product-price">{{ producto.precio | number: '1.2-2'}}€</h4>
+              </div>
+              <div class="add-to-cart">
+                <button class="add-to-cart-btn" (click)="alCarrito(producto)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+              </div>
+            </div>
+          </div>
+          <!-- /product -->
+        </div>
+        <!-- /store products -->
+
+        <!-- store bottom filter -->
+        <div class="store-filter clearfix">
+          <span class="store-qty" style="font-weight: bold;">Showing {{ listaProductos.length }} product/s</span>
+        </div>
+        <!-- /store bottom filter -->
+      </div>
+      <!-- /STORE -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /SECTION -->
+<app-footer></app-footer>

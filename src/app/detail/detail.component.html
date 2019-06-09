@@ -1,0 +1,74 @@
+<app-header></app-header>
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- Product main img -->
+      <div class="col-md-7">
+        <div id="product-main-img">
+          <div class="product-preview">
+            <img src="/assets/{{descriptionProduct[0].img}}" style="width: 500px;">
+          </div>
+        </div>
+      </div>
+      <!-- /Product main img -->
+      <!-- Product details -->
+      <div class="col-md-5">
+        <div class="product-details">
+          <h2 class="product-name">{{ descriptionProduct[0].nombre}}</h2>
+          <div>
+            <h3 class="product-price">{{ descriptionProduct[0].precio |number: '1.2-2' }}€
+            </h3>
+          </div>
+          <p> {{ descriptionProduct[0].descripcion }}</p>
+
+
+          <div class="product-options">
+            <label>
+              Size
+              <select class="input-select">
+                <option value="0">S</option>
+                <option value="1">M</option>
+                <option value="2">L</option>
+                <option value="3">XL</option>
+              </select>
+            </label>
+            <label>
+              Color
+              <select class="input-select">
+                <option value="0">Rojo</option>
+                <option value="1">Amarilla</option>
+                <option value="2">Gris</option>
+                <option value="3">Verde</option>
+                <option value="4">Negra</option>
+              </select>
+            </label>
+            <div class="add-to-cart" style="margin-top: 40px;">
+              <button class="add-to-cart-btn" (click)='alCarrito(descriptionProduct[0])' ><i class="fa fa-shopping-cart"></i> Añadir al carro</button>
+            </div>
+          </div>
+
+          <ul class="product-links">
+            <li>Categoría:</li>
+            <li><a routerLink="/results" [queryParams]="{categoria: descriptionProduct[0].categoria}" >{{ descriptionProduct[0].categoria }}</a></li>
+          </ul>
+
+          <ul class="product-links">
+            <li>Share:</li>
+            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-google-plus"></a></li>
+            <li><a href="#" class="fa fa-envelope"></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Product details -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /SECTION -->
+<app-footer></app-footer>

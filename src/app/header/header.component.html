@@ -1,0 +1,94 @@
+<!-- HEADER -->
+<header>
+  <div id="header">
+    <div class="container">
+      <!-- row -->
+      <div class="row" style="display: flex;align-items: center;">
+        <!-- LOGO -->
+        <div class="col-md-3">
+          <div class="header-logo">
+            <a href="#" class="logo">
+              <img src="../../assets/logo2.png" width="100" alt="">
+            </a>
+          </div>
+        </div>
+        <!-- SEARCH BAR -->
+        <div class="col-md-6">
+          <div class="header-search">
+            <form #searchForm="ngForm" (ngSubmit)='submitSearch(searchForm)'>
+              <input name="searchBar" class="input" placeholder="Buscar" ngModel>
+              <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-3 clearfix">
+          <div class="header-ctn">
+            <!-- Carrito -->
+            <div class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                <i class="fa fa-shopping-cart" style="font-size: 35px;"></i>
+                <div class="qty">{{getCantidad()}}</div>
+              </a>
+              <div class="cart-dropdown">
+                <div class="cart-list" *ngFor='let producto of carrito'>
+                  <div class="product-widget">
+                    <div class="product-img">
+                      <img src="/assets/{{producto.img}}" alt="">
+                    </div>
+                    <div class="product-body">
+                      <h3 class="product-name"><a href="#">{{ producto.nombre }}</a></h3>
+                      <h4 class="product-price"><span class="qty">{{ producto.cantidad}}
+                        x</span>{{producto.precio | number: '1.2-2'}}</h4>
+                    </div>
+                    <button class="delete" (click)='borrarProducto(producto)'><i class="fa fa-close"></i></button>
+                  </div>
+                </div>
+                <div class="cart-summary">
+                  <small>{{ getCantidad() }} Item(s) selected</small>
+                  <h5>SUBTOTAL:    {{ getPrecio() | number: '1.2-2'}}€</h5>
+                </div>
+                <div class="cart-btns">
+                  <a href="/checkout">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <a routerLink="/login">
+              <i class="fa fa-user" style="font-size: 35px;color: white"></i>
+            </a>
+            <a *ngIf="isLoged" routerLink="/pedidos">
+              <i class="fa fa-address-book" style="font-size: 35px; color: white;"></i>
+            </a>
+            <a *ngIf="isLoged" routerLink="/shop">
+              <i class="fa fa-sign-out" style="font-size: 35px; color: white;" (click)='logOut()'></i>
+              <p *ngIf="isLoged" style="color: #fff;font-weight: bold;margin-top: 5px;">Bienvenido {{ user}}</p>
+            </a>
+            <!-- /Cart -->
+
+            <!-- Menu Toogle -->
+            <div class="menu-toggle">
+              <a>
+                <i class="fa fa-bars" style="font-size: 35px;"></i>
+                <span style="font-size: 15px;">Menu</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV MENU -->
+<nav id="navigation">
+  <div class="container">
+    <div id="responsive-nav">
+      <ul class="main-nav nav navbar-nav">
+        <li class="active"><a href="/home">Home</a></li>
+        <li><a routerLink="/results" [queryParams]="{categoria: 'natacion'}">Natacion</a></li>
+        <li><a routerLink="/results" [queryParams]="{categoria: 'ciclismo'}">Ciclismo</a></li>
+        <li><a routerLink="/results" [queryParams]="{categoria: 'carrera'}">Carrera</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

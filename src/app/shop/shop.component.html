@@ -1,0 +1,95 @@
+<app-header></app-header>
+<!-- SECTION COLECCIONES -->
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <!-- COLECCION TIPO-->
+      <!--NATACION-->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="/assets/gafasSpeedo.jpeg" alt="">
+          </div>
+          <div class="shop-body" routerLink="/results" [queryParams]="{categoria: 'natacion'}">
+            <h3>Natación</h3>
+            <a class="cta-btn">Visitar <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!--CICLISMO-->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="/assets/biciSobato.jpeg" alt="">
+          </div>
+          <div class="shop-body" routerLink="/results" [queryParams]="{categoria: 'ciclismo'}">
+            <h3>Ciclismo</h3>
+            <a  class="cta-btn">Visitar <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!--CARRERA-->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="/assets/brooksRun.jpeg" alt="">
+          </div>
+          <div class="shop-body" routerLink="/results" [queryParams]="{categoria: 'carrera'}">
+            <h3>Carrera</h3>
+            <a class="cta-btn">Visitar <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION PRODUCTOS NUEVOS-->
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <!--TITULO -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h3 class="title">Productos nuevos</h3>
+        </div>
+      </div>
+      <!-- PRODUCTOS NUEVOS LISTA-->
+      <div class="col-md-12">
+        <div class="row">
+          <div class="products-tabs">
+            <div id="tab1" class="tab-pane active">
+              <div class="products-slick col-md-4" data-nav="#slick-nav-1" *ngFor='let product of products | slice:0:6'>
+                <div class="product">
+                  <div class="product-img" style="height: 350px" (click)="goToDetails(product)">
+                    <img src="/assets/{{ product.img }}" >
+                  </div>
+                  <div class="product-body">
+                    <h3 class="product-name"><a href="#">{{ product.nombre }}</a></h3>
+                    <h4 class="product-price">{{ product.precio | number: '1.2-2' }}€</h4>
+                  </div>
+                  <div class="add-to-cart">
+                    <button class="add-to-cart-btn" (click)="alCarrito(product)"><i class="fa fa-shopping-cart"></i> Añadir al carro</button>
+                  </div>
+                </div>
+              </div>
+              <div id="slick-nav-1" class="products-slick-nav"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+    </div>
+  </div>
+</div>
+<!-- /SECTION -->
+<app-footer></app-footer>

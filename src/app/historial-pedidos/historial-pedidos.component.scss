@@ -1,0 +1,60 @@
+@import url("../../assets/css/style.css");
+
+body {
+  background: #eee;
+}
+
+span {
+  font-size: 15px;
+}
+
+//.box {
+//  padding: 60px 0px;
+//
+//}
+
+.box-part {
+  background: #fff;
+  border-radius: 0;
+  padding: 60px 10px;
+}
+
+.text {
+  margin: 20px 0px;
+  color: white;
+}
+
+#box {
+  border: 2px solid;
+  border-color: #D10024;
+  padding: 5px 0px;
+  border-radius: 20px;
+  text-align: left;
+}
+
+
+.box-pedidos {
+  padding: 10px;
+}
+
+.box-pedidos .box-part {
+  border: 2px solid;
+  border-color: #dedede;
+  padding: 30px 0px;
+  border-radius: 20px;
+  text-align: left;
+  flex: 1;
+  box-shadow: 0px 5px 6px -5px black;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
